@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Posterity Archive — Fondation Postérité</title>
+    <meta name="description" content="A permanent archive of candid human testimony, sealed for fifty years after death, documenting civilizational transformation for future generations.">
+    <link rel="canonical" href="https://www.posterityarchive.org">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600;700&family=IBM+Plex+Mono:wght@400;500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+        
+        :root {
+            --archival-black: #0a0a0a;
+            --deep-charcoal: #1a1a1a;
+            --warm-gray: #3a3a3a;
+            --mid-gray: #666666;
+            --soft-gray: #999999;
+            --pale-gray: #d4d4d4;
+            --parchment: #f8f6f1;
+            --warm-white: #fefdfb;
+            --accent-amber: #8b6914;
+            --accent-copper: #b87333;
+            --rule-color: #c4c4c4;
+            
+            --font-display: 'Crimson Pro', serif;
+            --font-body: 'EB Garamond', serif;
+            --font-mono: 'IBM Plex Mono', monospace;
+            
+            --measure: 42rem;
+            --measure-narrow: 32rem;
+            --measure-wide: 60rem;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            font-size: 18px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            background: var(--warm-white);
+            color: var(--deep-charcoal);
+            overflow-x: hidden;
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-display);
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        h2 {
+            font-size: 2.25rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        p {
+            margin-bottom: 1.25rem;
+            max-width: var(--measure);
+        }
+        
+        .lead {
+            font-size: 1.35rem;
+            line-height: 1.65;
+            color: var(--warm-gray);
+            max-width: var(--measure-narrow);
+        }
+        
+        .mono {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            letter-spacing: 0.02em;
+        }
+        
+        /* Layout */
+        .container {
+            max-width: 90rem;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .section {
+            padding: 6rem 0;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .section:nth-child(1) { animation-delay: 0.1s; }
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.3s; }
+        .section:nth-child(4) { animation-delay: 0.4s; }
+        .section:nth-child(5) { animation-delay: 0.5s; }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        
+        /* Header / Hero */
+        .header {
+            border-bottom: 1px solid var(--rule-color);
+            background: linear-gradient(180deg, var(--parchment) 0%, var(--warm-white) 100%);
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 0;
+        }
+        
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--archival-black);
+            text-decoration: none;
+            letter-spacing: -0.01em;
+        }
+        
+        .logo-sub {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-style: italic;
+            color: var(--mid-gray);
+            margin-left: 0.5rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--warm-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent-amber);
+        }
+        
+        .hero {
+            padding: 8rem 0 10rem;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: var(--measure-wide);
+        }
+        
+        .hero-meta {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--mid-gray);
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeIn 1s ease 0.5s forwards;
+        }
+        
+        .hero h1 {
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.3s forwards;
+        }
+        
+        .hero .lead {
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .hero-accent {
+            position: absolute;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 12rem;
+            font-weight: 700;
+            color: var(--parchment);
+            opacity: 0.4;
+            font-family: var(--font-display);
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        /* CTA Buttons */
+        .cta-group {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: var(--accent-amber);
+            color: var(--warm-white);
+            border-color: var(--accent-amber);
+        }
+        
+        .btn-primary:hover {
+            background: var(--accent-copper);
+            border-color: var(--accent-copper);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--deep-charcoal);
+            border-color: var(--mid-gray);
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--accent-amber);
+            color: var(--accent-amber);
+        }
+        
+        /* Mission Block */
+        .mission-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+        
+        .mission-card {
+            padding: 2.5rem;
+            background: var(--parchment);
+            border: 1px solid var(--pale-gray);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .mission-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+        }
+        
+        .mission-card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 1rem;
+            color: var(--archival-black);
+        }
+        
+        .mission-card p {
+            color: var(--warm-gray);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+        
+        .mission-number {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--accent-copper);
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+        
+        /* Timeline */
+        .timeline {
+            background: var(--deep-charcoal);
+            color: var(--warm-white);
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-copper), transparent);
+        }
+        
+        .timeline-content {
+            max-width: var(--measure-wide);
+            margin: 0 auto;
+        }
+        
+        .timeline h2 {
+            color: var(--warm-white);
+        }
+        
+        .timeline-item {
+            display: flex;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .timeline-item:last-child {
+            border-bottom: none;
+        }
+        
+        .timeline-year {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent-amber);
+            min-width: 150px;
+            opacity: 0.9;
+        }
+        
+        .timeline-desc h3 {
+            color: var(--warm-white);
+            margin-bottom: 0.75rem;
+        }
+        
+        .timeline-desc p {
+            color: var(--soft-gray);
+            max-width: 40rem;
+        }
+        
+        /* Principles */
+        .principles-list {
+            list-style: none;
+            counter-reset: principle-counter;
+            margin-top: 2rem;
+        }
+        
+        .principle-item {
+            counter-increment: principle-counter;
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--rule-color);
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .principle-item::before {
+            content: counter(principle-counter, decimal-leading-zero);
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--accent-copper);
+            font-weight: 500;
+            min-width: 3rem;
+        }
+        
+        .principle-content h3 {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Quote Block */
+        .quote-block {
+            background: var(--parchment);
+            padding: 4rem;
+            margin: 4rem 0;
+            border-left: 4px solid var(--accent-amber);
+            position: relative;
+        }
+        
+        .quote-block::before {
+            content: '"';
+            position: absolute;
+            top: -1rem;
+            left: 2rem;
+            font-size: 8rem;
+            font-family: var(--font-display);
+            color: var(--pale-gray);
+            line-height: 1;
+        }
+        
+        .quote-text {
+            font-size: 1.5rem;
+            line-height: 1.6;
+            font-family: var(--font-display);
+            font-weight: 400;
+            color: var(--deep-charcoal);
+            max-width: var(--measure);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .quote-attribution {
+            margin-top: 1.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--mid-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        
+        /* Contact Form */
+        .contact-section {
+            background: var(--parchment);
+            padding: 6rem 0;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 5rem;
+            max-width: var(--measure-wide);
+            margin: 0 auto;
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-info p {
+            color: var(--warm-gray);
+            margin-bottom: 2rem;
+        }
+        
+        .contact-details {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            line-height: 1.8;
+            color: var(--mid-gray);
+        }
+        
+        .contact-details a {
+            color: var(--accent-amber);
+            text-decoration: none;
+        }
+        
+        .contact-details a:hover {
+            text-decoration: underline;
+        }
+        
+        .contact-form {
+            background: var(--warm-white);
+            padding: 3rem;
+            border: 1px solid var(--pale-gray);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--mid-gray);
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.9rem;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            border: 1px solid var(--pale-gray);
+            background: var(--warm-white);
+            color: var(--deep-charcoal);
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-amber);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        
+        .form-note {
+            font-size: 0.85rem;
+            color: var(--mid-gray);
+            font-style: italic;
+            margin-top: 1rem;
+            line-height: 1.6;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--archival-black);
+            color: var(--soft-gray);
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer h4 {
+            color: var(--warm-white);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer p {
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-links a {
+            color: var(--soft-gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-amber);
+        }
+        
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        
+        /* Bilingual Toggle */
+        .lang-toggle {
+            display: flex;
+            gap: 0.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+        }
+        
+        .lang-toggle button {
+            background: none;
+            border: 1px solid var(--mid-gray);
+            color: var(--mid-gray);
+            padding: 0.4rem 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        
+        .lang-toggle button.active {
+            background: var(--accent-amber);
+            border-color: var(--accent-amber);
+            color: var(--warm-white);
+        }
+        
+        .lang-toggle button:hover {
+            border-color: var(--accent-amber);
+        }
+        
+        /* Language switching */
+        [lang="fr"] { display: none; }
+        html[data-lang="fr"] [lang="en"] { display: none; }
+        html[data-lang="fr"] [lang="fr"] { display: block; }
+        html[data-lang="en"] [lang="en"] { display: block; }
+        html[data-lang="en"] [lang="fr"] { display: none; }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            html {
+                font-size: 16px;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero {
+                padding: 4rem 0 5rem;
+            }
+            
+            .hero-accent {
+                display: none;
+            }
+            
+            .mission-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .timeline-item {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .timeline-year {
+                font-size: 2rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .principle-item {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .quote-block {
+                padding: 2rem;
+            }
+            
+            .quote-text {
+                font-size: 1.2rem;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .cta-group {
+                flex-direction: column;
+            }
+            
+            .btn {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="https://www.posterityarchive.org" class="logo">
+                    <span lang="en">THE POSTERITY ARCHIVE</span>
+                    <span lang="fr">FONDATION POSTÉRITÉ</span>
+                    <span class="logo-sub" lang="en">Fondation Postérité</span>
+                    <span class="logo-sub" lang="fr">The Posterity Archive</span>
+                </a>
+                <div class="lang-toggle">
+                    <button data-lang="en" class="active">EN</button>
+                    <button data-lang="fr">FR</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-meta">
+                    <span lang="en">Geneva, Switzerland — Established 2027</span>
+                    <span lang="fr">Genève, Suisse — Fondée en 2027</span>
+                </div>
+                <h1 lang="en">Preserving candid testimony for the generations who inherit our choices</h1>
+                <h1 lang="fr">Préserver des témoignages sincères pour les générations qui hériteront de nos choix</h1>
+                
+                <p class="lead" lang="en">A permanent archive documenting human experience during civilizational transformation — sealed for fifty years after death, released to a future with no stake in protecting the present.</p>
+                <p class="lead" lang="fr">Une archive permanente documentant l'expérience humaine pendant la transformation civilisationnelle — scellée pendant cinquante ans après la mort, accessible à un avenir sans intérêt à protéger le présent.</p>
+                
+                <div class="cta-group">
+                    <a href="/charter/Posterity_Foundation_Charter_2027.pdf" class="btn btn-primary" download lang="en">Download Charter</a>
+                    <a href="/charter/Posterity_Foundation_Charter_2027.pdf" class="btn btn-primary" download lang="fr">Télécharger la Charte</a>
+                    <a href="#contact" class="btn btn-secondary" lang="en">Contact</a>
+                    <a href="#contact" class="btn btn-secondary" lang="fr">Contact</a>
+                </div>
+            </div>
+            <div class="hero-accent">2027</div>
+        </div>
+    </section>
+
+    <!-- Mission -->
+    <section class="section">
+        <div class="container">
+            <h2 lang="en">The Archive Mission</h2>
+            <h2 lang="fr">La Mission de l'Archive</h2>
+            
+            <p class="lead" lang="en">Every civilization that has collapsed left behind the same gap: we know what was announced. We do not know what people actually believed.</p>
+            <p class="lead" lang="fr">Chaque civilisation effondrée a laissé la même lacune : nous savons ce qui a été annoncé. Nous ne savons pas ce que les gens croyaient réellement.</p>
+            
+            <div class="mission-grid">
+                <div class="mission-card">
+                    <span class="mission-number">01</span>
+                    <h3 lang="en">Two Interviews, Two Truths</h3>
+                    <h3 lang="fr">Deux Entretiens, Deux Vérités</h3>
+                    <p lang="en">Each subject gives two interviews. The first released during their lifetime — their public account. The second sealed until fifty years after death — what they actually believed about the decisions they made, the institutions they served, the moment they lived through.</p>
+                    <p lang="fr">Chaque sujet donne deux entretiens. Le premier publié de son vivant — son témoignage public. Le second scellé jusqu'à cinquante ans après sa mort — ce qu'il croyait réellement concernant les décisions prises, les institutions servies, le moment vécu.</p>
+                </div>
+                
+                <div class="mission-card">
+                    <span class="mission-number">02</span>
+                    <h3 lang="en">A Genuine Cross-Section</h3>
+                    <h3 lang="fr">Une Coupe Transversale Authentique</h3>
+                    <p lang="en">Not elites alone. Leaders who made decisions, workers who executed them, ordinary citizens who experienced consequences, resisters who refused them — across geography, language, social position, and institutional role.</p>
+                    <p lang="fr">Pas seulement les élites. Les dirigeants qui ont pris des décisions, les travailleurs qui les ont exécutées, les citoyens ordinaires qui en ont subi les conséquences, les résistants qui les ont refusées — à travers la géographie, la langue, la position sociale et le rôle institutionnel.</p>
+                </div>
+                
+                <div class="mission-card">
+                    <span class="mission-number">03</span>
+                    <h3 lang="en">Permanent Custodianship</h3>
+                    <h3 lang="fr">Garde Permanente</h3>
+                    <p lang="en">The sealed archive exists in five jurisdictions simultaneously — the Swiss Federal Archives, the Bodleian Libraries at Oxford, and regional deposit partners across three continents — so no single failure can compromise the embargo.</p>
+                    <p lang="fr">L'archive scellée existe dans cinq juridictions simultanément — les Archives fédérales suisses, les Bibliothèques Bodleian d'Oxford, et des partenaires de dépôt régionaux sur trois continents — afin qu'aucune défaillance unique ne puisse compromettre l'embargo.</p>
+                </div>
+                
+                <div class="mission-card">
+                    <span class="mission-number">04</span>
+                    <h3 lang="en">Institutional Independence</h3>
+                    <h3 lang="fr">Indépendance Institutionnelle</h3>
+                    <p lang="en">A Geneva-based Swiss foundation governed by an international Council, funded by endowment rather than grants, accepting no government or commercial support that would compromise neutrality or independence.</p>
+                    <p lang="fr">Une fondation suisse basée à Genève, gouvernée par un Conseil international, financée par dotation plutôt que par subventions, n'acceptant aucun soutien gouvernemental ou commercial susceptible de compromettre sa neutralité ou son indépendance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote -->
+    <div class="container">
+        <div class="quote-block">
+            <div class="quote-text" lang="en">
+                The interviews we record in 2027 will be read in 2150. That is not a metaphor. It is the condition under which every decision about this institution must be made.
+            </div>
+            <div class="quote-text" lang="fr">
+                Les entretiens que nous enregistrons en 2027 seront lus en 2150. Ce n'est pas une métaphore. C'est la condition dans laquelle chaque décision concernant cette institution doit être prise.
+            </div>
+            <div class="quote-attribution" lang="en">Foundation Charter, Article 7.3</div>
+            <div class="quote-attribution" lang="fr">Charte de la Fondation, Article 7.3</div>
+        </div>
+    </div>
+
+    <!-- Timeline -->
+    <section class="timeline">
+        <div class="container">
+            <div class="timeline-content">
+                <h2 lang="en">From Founding to Archive</h2>
+                <h2 lang="fr">De la Fondation à l'Archive</h2>
+                
+                <p class="lead" lang="en">Building a permanent institution designed to outlast every political and institutional disruption of the next century.</p>
+                <p class="lead" lang="fr">Construire une institution permanente conçue pour survivre à toutes les perturbations politiques et institutionnelles du prochain siècle.</p>
+                
+                <div style="margin-top: 4rem;">
+                    <div class="timeline-item">
+                        <div class="timeline-year">2027</div>
+                        <div class="timeline-desc">
+                            <h3 lang="en">Foundation Establishment</h3>
+                            <h3 lang="fr">Établissement de la Fondation</h3>
+                            <p lang="en">Swiss foundation registered in Geneva. International founding Council seated. Custodial agreements executed with primary and co-custodian institutions.</p>
+                            <p lang="fr">Fondation suisse enregistrée à Genève. Conseil fondateur international installé. Accords de garde exécutés avec les institutions gardiennes principales et co-gardiennes.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">2027–29</div>
+                        <div class="timeline-desc">
+                            <h3 lang="en">Pilot Interview Program</h3>
+                            <h3 lang="fr">Programme Pilote d'Entretiens</h3>
+                            <p lang="en">Twenty to thirty pilot interviews across eight to ten countries, establishing interview protocol and demonstrating the dual-interview structure produces qualitatively different testimony.</p>
+                            <p lang="fr">Vingt à trente entretiens pilotes dans huit à dix pays, établissant le protocole d'entretien et démontrant que la structure à deux entretiens produit un témoignage qualitativement différent.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">2029–35</div>
+                        <div class="timeline-desc">
+                            <h3 lang="en">Archive Expansion</h3>
+                            <h3 lang="fr">Expansion de l'Archive</h3>
+                            <p lang="en">Regional hub model established. Interviewer training programs producing culturally competent oral historians in each geography. Translation and archival infrastructure for fifteen to twenty languages.</p>
+                            <p lang="fr">Modèle de pôles régionaux établi. Programmes de formation d'intervieweurs produisant des historiens oraux culturellement compétents dans chaque géographie. Infrastructure de traduction et d'archivage pour quinze à vingt langues.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">2077+</div>
+                        <div class="timeline-desc">
+                            <h3 lang="en">First Releases from Seal</h3>
+                            <h3 lang="fr">Premières Divulgations Scellées</h3>
+                            <p lang="en">The earliest interviews conducted in 2027 begin emerging from the fifty-year embargo as subjects reach end of life. The first generation of sealed testimony becomes available to historians.</p>
+                            <p lang="fr">Les premiers entretiens menés en 2027 commencent à sortir de l'embargo de cinquante ans à mesure que les sujets arrivent en fin de vie. La première génération de témoignages scellés devient accessible aux historiens.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Principles -->
+    <section class="section">
+        <div class="container">
+            <h2 lang="en">Founding Principles</h2>
+            <h2 lang="fr">Principes Fondateurs</h2>
+            
+            <p class="lead" lang="en">The charter establishes five constraints that cannot be amended without supervisory authority approval.</p>
+            <p class="lead" lang="fr">La charte établit cinq contraintes qui ne peuvent être modifiées sans l'approbation de l'autorité de surveillance.</p>
+            
+            <ul class="principles-list">
+                <li class="principle-item">
+                    <div class="principle-content">
+                        <h3 lang="en">The Embargo Is Absolute</h3>
+                        <h3 lang="fr">L'Embargo est Absolu</h3>
+                        <p lang="en">Fifty years from confirmed death. Cannot be lifted by Council resolution, estate request, or political pressure. Only a Swiss federal court finding compelling public interest can authorize early release.</p>
+                        <p lang="fr">Cinquante ans après la mort confirmée. Ne peut être levé par résolution du Conseil, demande de succession ou pression politique. Seule une cour fédérale suisse constatant un intérêt public impérieux peut autoriser une divulgation anticipée.</p>
+                    </div>
+                </li>
+                
+                <li class="principle-item">
+                    <div class="principle-content">
+                        <h3 lang="en">No Government Funding</h3>
+                        <h3 lang="fr">Aucun Financement Gouvernemental</h3>
+                        <p lang="en">The Foundation accepts no contributions from any government, government agency, sovereign wealth fund, or state-controlled entity. Neutrality is structural, not aspirational.</p>
+                        <p lang="fr">La Fondation n'accepte aucune contribution de tout gouvernement, agence gouvernementale, fonds souverain ou entité contrôlée par l'État. La neutralité est structurelle, non aspirationnelle.</p>
+                    </div>
+                </li>
+                
+                <li class="principle-item">
+                    <div class="principle-content">
+                        <h3 lang="en">Geographic Distribution Mandate</h3>
+                        <h3 lang="fr">Mandat de Distribution Géographique</h3>
+                        <p lang="en">No single region may represent more than thirty percent of the archive. No single language more than twenty-five percent. Independent academic audit every five years, published without modification.</p>
+                        <p lang="fr">Aucune région ne peut représenter plus de trente pour cent de l'archive. Aucune langue plus de vingt-cinq pour cent. Audit académique indépendant tous les cinq ans, publié sans modification.</p>
+                    </div>
+                </li>
+                
+                <li class="principle-item">
+                    <div class="principle-content">
+                        <h3 lang="en">International Governance</h3>
+                        <h3 lang="fr">Gouvernance Internationale</h3>
+                        <p lang="en">At no time shall a majority of Council members hold citizenship or primary residence in the same country or political union. This constraint is a fundamental condition of the Foundation's purpose.</p>
+                        <p lang="fr">En aucun cas une majorité de membres du Conseil ne doit détenir la citoyenneté ou la résidence principale dans le même pays ou union politique. Cette contrainte est une condition fondamentale de l'objectif de la Fondation.</p>
+                    </div>
+                </li>
+                
+                <li class="principle-item">
+                    <div class="principle-content">
+                        <h3 lang="en">Custodial Redundancy</h3>
+                        <h3 lang="fr">Redondance de Garde</h3>
+                        <p lang="en">The sealed archive exists in five independent jurisdictions with legally enforceable embargo obligations that survive dissolution of the Foundation itself.</p>
+                        <p lang="fr">L'archive scellée existe dans cinq juridictions indépendantes avec des obligations d'embargo juridiquement exécutoires qui survivent à la dissolution de la Fondation elle-même.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2 lang="en">Contact</h2>
+                    <h2 lang="fr">Contact</h2>
+                    
+                    <p lang="en">The Posterity Foundation is being established in 2027. We are seeking the critical engagement of people whose experience in international institutional governance, archival permanence, and cross-cultural credibility will identify where this architecture is insufficient before it is formally established.</p>
+                    <p lang="fr">La Fondation Postérité est en cours d'établissement en 2027. Nous recherchons l'engagement critique de personnes dont l'expérience en gouvernance institutionnelle internationale, permanence archivistique et crédibilité interculturelle identifiera les insuffisances de cette architecture avant son établissement formel.</p>
+                    
+                    <div class="contact-details">
+                        <strong lang="en">Institutional Inquiries:</strong>
+                        <strong lang="fr">Demandes Institutionnelles :</strong><br>
+                        <a href="mailto:birchard@posterityarchive.org">birchard@posterityarchive.org</a><br><br>
+                        
+                        <strong lang="en">Foundation Seat:</strong>
+                        <strong lang="fr">Siège de la Fondation :</strong><br>
+                        <span lang="en">Geneva, Canton of Geneva<br>Switzerland</span>
+                        <span lang="fr">Genève, Canton de Genève<br>Suisse</span>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form action="https://formspree.io/f/xeoqknbd" method="POST">
+                        <div class="form-group">
+                            <label for="name" lang="en">Name</label>
+                            <label for="name" lang="fr">Nom</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" lang="en">Email</label>
+                            <label for="email" lang="fr">Courriel</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="affiliation" lang="en">Institutional Affiliation (Optional)</label>
+                            <label for="affiliation" lang="fr">Affiliation Institutionnelle (Optionnel)</label>
+                            <input type="text" id="affiliation" name="affiliation">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject" lang="en">Subject</label>
+                            <label for="subject" lang="fr">Sujet</label>
+                            <select id="subject" name="subject" required>
+                                <option value="" lang="en">Select a subject</option>
+                                <option value="" lang="fr">Sélectionner un sujet</option>
+                                <option value="council" lang="en">Founding Council Inquiry</option>
+                                <option value="council" lang="fr">Demande Conseil Fondateur</option>
+                                <option value="endowment" lang="en">Endowment & Funding</option>
+                                <option value="endowment" lang="fr">Dotation & Financement</option>
+                                <option value="custodial" lang="en">Custodial Partnership</option>
+                                <option value="custodial" lang="fr">Partenariat de Garde</option>
+                                <option value="interview" lang="en">Interview Subject Inquiry</option>
+                                <option value="interview" lang="fr">Demande Sujet d'Entretien</option>
+                                <option value="other" lang="en">Other</option>
+                                <option value="other" lang="fr">Autre</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" lang="en">Message</label>
+                            <label for="message" lang="fr">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" lang="en">Send Message</button>
+                        <button type="submit" class="btn btn-primary" lang="fr">Envoyer le Message</button>
+                        
+                        <p class="form-note" lang="en">
+                            This institution exists for centuries or fails before it matters. Substantive inquiries from people with relevant institutional experience receive priority consideration.
+                        </p>
+                        <p class="form-note" lang="fr">
+                            Cette institution existe pendant des siècles ou échoue avant d'avoir de l'importance. Les demandes substantielles de personnes ayant une expérience institutionnelle pertinente reçoivent une attention prioritaire.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h4 lang="en">The Posterity Foundation</h4>
+                    <h4 lang="fr">Fondation Postérité</h4>
+                    <p lang="en">A permanent archival institution preserving candid testimony from across the full spectrum of human experience during civilizational transformation.</p>
+                    <p lang="fr">Une institution d'archives permanente préservant des témoignages sincères de l'ensemble du spectre de l'expérience humaine pendant la transformation civilisationnelle.</p>
+                    <p style="margin-top: 1.5rem; font-family: var(--font-mono); font-size: 0.75rem;">
+                        <span lang="en">Fondation Postérité</span>
+                        <span lang="fr">The Posterity Foundation</span><br>
+                        <span lang="en">Geneva, Canton of Geneva</span>
+                        <span lang="fr">Genève, Canton de Genève</span><br>
+                        <span lang="en">Switzerland</span>
+                        <span lang="fr">Suisse</span>
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 lang="en">The Archive</h4>
+                    <h4 lang="fr">L'Archive</h4>
+                    <ul class="footer-links">
+                        <li><a href="#mission" lang="en">Mission & Purpose</a></li>
+                        <li><a href="#mission" lang="fr">Mission & Objectif</a></li>
+                        <li><a href="/charter/Posterity_Foundation_Charter_2027.pdf" lang="en">Foundation Charter</a></li>
+                        <li><a href="/charter/Posterity_Foundation_Charter_2027.pdf" lang="fr">Charte de la Fondation</a></li>
+                        <li><a href="#council" lang="en">Governing Council</a></li>
+                        <li><a href="#council" lang="fr">Conseil de Direction</a></li>
+                        <li><a href="#custodians" lang="en">Custodial Institutions</a></li>
+                        <li><a href="#custodians" lang="fr">Institutions Gardiennes</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 lang="en">Engagement</h4>
+                    <h4 lang="fr">Engagement</h4>
+                    <ul class="footer-links">
+                        <li><a href="#support" lang="en">Support the Archive</a></li>
+                        <li><a href="#support" lang="fr">Soutenir l'Archive</a></li>
+                        <li><a href="#contact" lang="en">Contact</a></li>
+                        <li><a href="#contact" lang="fr">Contact</a></li>
+                        <li><a href="#transparency" lang="en">Transparency Reports</a></li>
+                        <li><a href="#transparency" lang="fr">Rapports de Transparence</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div lang="en">© 2027 The Posterity Foundation. All rights reserved.</div>
+                <div lang="fr">© 2027 Fondation Postérité. Tous droits réservés.</div>
+                <div lang="en">Established under Swiss Law — Federal Supervision</div>
+                <div lang="fr">Établie en Droit Suisse — Surveillance Fédérale</div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language toggle
+        const langButtons = document.querySelectorAll('.lang-toggle button');
+        const html = document.documentElement;
+        
+        // Set initial language
+        html.setAttribute('data-lang', 'en');
+        
+        langButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const lang = this.getAttribute('data-lang');
+                
+                // Update active state
+                langButtons.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Update HTML lang attribute
+                html.setAttribute('lang', lang);
+                html.setAttribute('data-lang', lang);
+                
+                // Update page title
+                document.title = lang === 'en' 
+                    ? 'The Posterity Archive — Fondation Postérité'
+                    : 'Fondation Postérité — The Posterity Archive';
+            });
+        });
+
+        // Smooth reveal on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+        
+        // Form submission handling
+        const contactForm = document.querySelector('.contact-form form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                // Formspree will handle the actual submission
+                // This is just for user feedback
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const originalText = submitBtn.textContent;
+                submitBtn.textContent = html.getAttribute('data-lang') === 'en' ? 'Sending...' : 'Envoi...';
+                submitBtn.disabled = true;
+                
+                // Re-enable after 3 seconds (Formspree redirects anyway)
+                setTimeout(() => {
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                }, 3000);
+            });
+        }
+    </script>
+</body>
+</html>
